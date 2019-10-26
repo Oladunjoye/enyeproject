@@ -13,7 +13,6 @@ import { useDispatch } from "react-redux";
 import addUser from "./redux/actions/userActions";
 
 const NormalLoginForm = props => {
-  console.log(props);
   const [loading, setLoading] = useState(false);
   const [iconLoading, setIconLoading] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -193,7 +192,6 @@ class NormalLoginForms extends React.Component {
   };
 
   handleOk = () => {
-    // console.log(this.props);
     this.props.displayTable();
   };
 

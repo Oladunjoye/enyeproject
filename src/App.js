@@ -1,21 +1,22 @@
 import React, { Component, Fragment } from "react";
 import UserForm from "./Form";
 import UserTable from "./Table";
-import uuidv4 from "uuid/v4";
-import moment from "moment";
 import userReducer from "./redux/reducers/userReducer";
 
 import { Provider } from "react-redux";
 import { createStore, combineReducers } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 
 const rootReducer = combineReducers({
   users: userReducer
 });
 
-const store = createStore(
-  rootReducer,
-  +window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+// const composeSetup = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+//   ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+//   : compose;
+// +window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
+const store = createStore(rootReducer, composeWithDevTools());
 
 class App extends Component {
   state = {
